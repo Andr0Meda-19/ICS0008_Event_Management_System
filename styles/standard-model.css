@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-dark: #0C0E0E;
+  --clr-light: #f1f5f9;
+  --clr-lighter: #fafcff;
+  --clr-slate400: #94a3b8;
+  --clr-slate600: #475569;
+  --clr-slate800: #1e293b;
+  --clr-green-slate400: #D0D9D8;
+  --clr-green-slate600: #798C8A;
+  --clr-green-slate800: #3B4544;
+  --clr-green: #1fdb25;
+  --clr-indigo: #4f46e5;
+  --clr-blue: #1e9cd7;
+}
