@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url(standard-model.css);
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    /* background: var(--clr-light); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    /* position: relative; */
+    width: 30%;
+    min-width: 330px;
+    /* top: 15%; */
+    padding: 2rem 1rem;
+    /* margin: 0 20px 0 20px; */
+    background-color: var(--clr-lighter);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    /* display: inline-block; */
+    width: 70%;
+    max-width: 300px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--clr-dark);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+form input {
+    width: 85%;
+    outline: none;
+    border: 1px solid var(--clr-slate400);
+    border-radius: 20px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    background: var(--clr-light);
+}
+
+button {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    padding: 10px 0;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    width: 50%;
+    color: var(--clr-lighter);
+    cursor: pointer;
+    background: linear-gradient(to right, var(--clr-indigo), var(--clr-blue));
+}
+
+button:hover {
+    background: linear-gradient(to right, rgba(79, 70, 229, 0.8), rgba(30, 156, 215, 0.8));
+}
+
+input:focus {
+    border: 1px solid var(--clr-slate400);
+}
+
+.terms {
+    margin-top: 0.2rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.terms input {
+    height: 1.2em;
+    width: 1.2em;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.terms label {
+    font-size: 0.9rem;
+}
+
+.terms a {
+    color: var(--clr-blue);
+    text-decoration: none;
+}
+
+.member {
+    font-size: 0.9rem;
+    margin-top: 1.4rem;
+    color: var(--clr-dark);
+}
+
+.member a {
+    color: var(--clr-blue);
+    text-decoration: none;
+}
+
+.recover {
+    text-align: right;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    margin-right: 8%;
+}
+
+.recover a {
+    color: var(--clr-dark);
+    text-decoration: none;
+}
