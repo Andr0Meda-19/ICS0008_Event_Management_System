@@ -11,8 +11,8 @@
 
 :root {
   --clr-dark: #0C0E0E;
-  --clr-light: #f1f5f9;
-  --clr-lighter: #fafcff;
+  --clr-light: hsl(216, 40%, 94%);
+  --clr-lighter: hsl(216, 40%, 99%);
   --clr-slate400: #94a3b8;
   --clr-slate600: #475569;
   --clr-slate800: #1e293b;
@@ -22,4 +22,7 @@
   --clr-green: #1fdb25;
   --clr-indigo: #4f46e5;
   --clr-blue: #1e9cd7;
+
+  --clr-bg-left: #e2e2e2;
+  --clr-bg-right: #c9d6ff;
 }
