@@ -8,16 +8,25 @@
 </head>
 <body>
     <header>
-            <img src="./svgs/logo_svg-01.svg" alt="logo">
-            <h1>Upcoming Events</h1>
+        <div class="navigation">
+            <div class="navigation-content">
+                <img src="./svgs/logo_svg-01.svg" alt="logo">
+            </div>
+        </div>
+        <div class="navigation-links">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#">Contact</a>
+                <a href="signup.html">Sign Up</a>
+            </nav>
+        </div>
     </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="...">About</a>
-        <a href="...">Contact</a>
-    </nav>
-
+    
+    
     <div class="search-container">
+        <h1>Upcoming Events</h1>
+        <br>
         <label for="date">Date:</label>
         <input type="text" id="date" placeholder="Enter date">
 
@@ -33,7 +42,6 @@
 
         <button>Search</button>
     </div>
-
     <ul id="event-list">
     </ul>
 </body>
