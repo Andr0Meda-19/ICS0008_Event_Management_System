@@ -1,7 +1,7 @@
 <?php
 function registerUser($username, $email, $password){
 
-    $filename = "../php/users.csv";
+    $filename = "../data/users.csv";
     $handle = fopen($filename, 'w');
     $data = array($username, $email, $password);
 
