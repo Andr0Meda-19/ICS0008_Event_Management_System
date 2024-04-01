@@ -11,17 +11,17 @@
     <div class="wrapper">
         <img src="./svgs/logo_svg-01.svg" alt="logo">
         <h1>Sign Up</h1>
-        <form action="signup.html" method="POST">
-            <input type="email" placeholder="Email">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Re-Enter Password">
+        <form action="./php/signup.php" method="POST">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="repassword" placeholder="Re-Enter Password">
         </form>
         <div class="terms">
             <input type="checkbox" id="checkbox">
             <label for="checkbox">I agree to these <a href="./terms.html" target="_blank">Terms &amp; Conditions</a></label>
         </div>
-        <button>Sign Up</button>
+        <input type="submit" id="button" class="button" name="button" value="Submit">
         <div class="member">
             <p>Already a member? <a href="./login.html">Login Here</a></p>
         </div>
