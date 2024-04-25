@@ -31,31 +31,35 @@ if(empty($_POST["checkbox"])){
 }
 
 if(empty($errors)){
-    $sql = "SELECT * FROM users WHERE username = :username OR email = :email";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $_POST["username"], $_POST["email"]);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    if(mysqli_num_rows($result) > 0){
-        $errors[] = "Username or email already exists";
+    $sql = "INSERT INTO user (name, email, password_hash)
+            VALUES (?, ?, ?)";
+        
+    $stmt = $conn->stmt_init();
+
+    if ( ! $stmt->prepare($sql)) {
+        die("SQL error: " . $conn->error);
     }
 
-    mysqli_stmt_close($stmt);
-    mysqli_free_result($result);
-}
+    $stmt->bind_param("sss",
+                      $_POST["name"],
+                      $_POST["email"],
+                      $password_hash);
+                  
+    if ($stmt->execute()) {
 
-if(empty($errors)){
-    $passwordhash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sss", $_POST["username"], $_POST["email"], $passwordhash);
-    if (mysqli_stmt_execute($stmt)) {
-        die ("You have successfully registered. You may now log in.");
+        header("Location: signup-success.html");
+        exit;
+    
     } else {
-        mysqli_error($conn);
+    
+        if ($conn->errno === 1062) {
+            die("email already taken");
+        } else {
+            die($conn->error . " " . $conn->errno);
+        }
     }
-
-    mysqli_stmt_close($stmt);
+} else {
+    echo print_r($errors, true);
 }
