@@ -9,24 +9,33 @@
 </head>
 <body>
     <div class="wrapper">
+
         <img src="./svgs/logo_svg-01.svg" alt="logo">
+
         <h1>Sign Up</h1>
-        <form action="./php/signup.php" method="POST">
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="repassword" placeholder="Re-Enter Password">
-        <div class="terms">
-            <input type="checkbox" id="checkbox" required>
-            <label for="checkbox">I agree to these <a href="./terms.html" target="_blank">Terms &amp; Conditions</a></label>
-        </div>
-        <div>
-        <button type="submit" id="button" class="button" name="button" value="Submit">
-        </div>
-        <div class="member">
-            <p>Already a member? <a href="./login.html">Login Here</a></p>
-        </div>
-        </form>
+
+        <form action="process-signup.php" method="post" id="signup">
+
+            <div>
+                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="text" id="username" name="username" placeholder="Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-Enter Password">
+            </div>
+        
+            <div class="terms">
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <label for="checkbox">I agree to these <a href="./terms.html" target="_blank">Terms &amp; Conditions</a></label>
+            </div>
+
+            <button>Sign Up</button>
+
+            <div class="member">
+                <p>Already a member? <a href="./login.html">Login Here</a></p>
+            </div>
+
+        </form> 
+
     </div>
 </body>
 </html>
