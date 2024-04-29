@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
                 // Password is correct, store user ID in session
                 $_SESSION['user_id'] = $id;
                 // Redirect user to dashboard or any other authenticated page
-                header("Location: dashboard.php");
+                header("Location: index.php");
                 exit;
             } else {
                 // Password is incorrect, display error message
