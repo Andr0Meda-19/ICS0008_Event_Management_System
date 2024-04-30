@@ -31,7 +31,6 @@
     </header>
         <table>
             <tr>
-                <th>Id</th>
                 <th>Task Name</th>
                 <th>Description</th>
                 <th>Created At</th>
@@ -49,7 +48,7 @@
                 echo "<td>". $row['task_name']. "</td>";
                 echo "<td>". $row['task_description']. "</td>";
                 echo "<td>". $row['created_at']. "</td>";
-                echo "<td><a href='edit_task.php?id={$row['id']}'>Edit</a>" | "<a href='delete_task.php?id={$row['id']}'>Delete</a></td>";
+                echo "<td> <a href='edit_task.php?id={$row['id']}'>Edit</a>" | "<a href='delete_task.php?id={$row['id']}'>Delete</a></td>";
             }
             ?>
         </table>
