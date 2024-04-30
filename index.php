@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <title>Event Listings</title>
+    <title>Home Page</title>
 </head>
 <body>
     <header>
@@ -25,36 +25,19 @@
                     echo '<a href="login.php">Log in</a>';
                 }
                 ?>
+                <a href="#">Task List</a>
             </nav>
         </div>
     </header>
-    
-    
-    <div class="search-container">
-        <h1>Upcoming Events</h1>
-        <br>
-        <label for="date">Date:</label>
-        <input type="text" id="date" placeholder="Enter date">
-
-        <label for="location">Location:</label>
-        <input type="text" id="location" placeholder="Enter location">
-
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="">All</option>
-            <option value="music">Music</option>
-            <option value="sports">Sports</option>
-        </select>
-
-        <button>Search</button>
-    </div>
     <div class="add-task-container">
     <h2>Add Task</h2>
     <form action="add_task.php" method="POST">
-        <textarea name="task_description" placeholder="Enter task description"></textarea>
+        <label>Task name:</label><br>
+        <input type="text" name="task_name" required>
+        <label>Description:</label><br>
+        <textarea name="task_description"></textarea>>
         <button type="submit">Add Task</button>
     </form>
     </div>
-
 </body>
 </html>
