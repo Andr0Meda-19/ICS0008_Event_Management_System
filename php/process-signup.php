@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
                 // Bind parameters and execute the query
                 $stmt->bind_param("sss", $_POST["username"], $_POST["email"], $password_hash);
                 if ($stmt->execute()) { // If the query was executed successfully
-                    header("Location: login.php"); // Redirect to signup success page
+                    header("Location: ./login.php"); // Redirect to signup success page
                     exit;
                 } else {
                     // If there was an error executing the query, display error message
