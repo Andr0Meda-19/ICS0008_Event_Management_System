@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
         <img src="./svgs/logo_svg-01.svg" alt="logo">
         <h1>Login</h1>
         <?php if(isset($login_error)) echo "<p>$login_error</p>"; ?>
-        <form action="php/login.php" method="POST">
+        <form action="login.php" method="POST">
             <input type="text" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Password">
             <button>Log in</button>
