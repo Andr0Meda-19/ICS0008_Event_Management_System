@@ -1,0 +1,20 @@
+.navigation-button {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.back-button {
+    left: 30px;
+    bottom: 30px;
+}
+
+.forward-button {
+    right: 30px;
+    bottom: 30px;
+}

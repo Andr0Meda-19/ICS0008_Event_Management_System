@@ -39,5 +39,6 @@
         <button type="submit">Add Task</button>
     </form>
     </div>
+    <script src="/scripts/navigation.js"></script>
 </body>
 </html>
