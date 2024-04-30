@@ -54,7 +54,7 @@
             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
             // Add edit and delete links with task id as a parameter
                 echo "<td>
-            <form action='edit_task.php' method='get' style='display: inline-block;'><input type='hidden' name='id' value='" . urlencode($row['id']) . "'><button type='submit' style='background:none; border:none; color:blue; text-decoration: underline; cursor:pointer;'>Edit</button></form><form action='delete_task.php' method='post' style='display: inline-block;' onsubmit=\"return confirm('Are you sure you want to delete this task?');\"><input type='hidden' name='task_name' value='" . htmlspecialchars($row['task_name']) . "'><button type='submit' style='background:none; border:none; color:red; text-decoration: underline; cursor:pointer;'>Delete</button></form>
+            <form action='delete_task.php' method='post' style='display: inline-block;' onsubmit=\"return confirm('Are you sure you want to delete this task?');\"><input type='hidden' name='task_name' value='" . htmlspecialchars($row['task_name']) . "'><button type='submit' style='background:none; border:none; color:red; text-decoration: underline; cursor:pointer;'>Delete</button></form>
           </td>";
             echo "</tr>";
         }
