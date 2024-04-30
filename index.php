@@ -33,7 +33,7 @@
     <h2>Add Task</h2>
     <form action="add_task.php" method="POST">
         <label>Task name:</label><br>
-        <input type="text" name="task_name" required>
+        <input type="text" name="task_name" required><br>
         <label>Description:</label><br>
         <textarea name="task_description"></textarea>>
         <button type="submit">Add Task</button>
