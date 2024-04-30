@@ -31,7 +31,7 @@
     </header>
     <div class="add-task-container">
     <h2>Add Task</h2>
-    <form action="./php/add_task.php" method="POST">
+    <form action="php/add_task.php" method="POST">
         <label>Task name:</label><br>
         <input type="text" name="task_name" required><br>
         <label>Description:</label><br>
