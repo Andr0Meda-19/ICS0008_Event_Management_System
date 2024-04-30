@@ -101,9 +101,6 @@
             </select>
             <button type="submit">Добавить задачу</button>
         </form>
-    <?php
-    ?>
-
     </div>
 </body>
 </html>
