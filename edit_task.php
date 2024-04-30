@@ -34,29 +34,37 @@
     <?php
     include 'db_config.php';
 
+    // Check if task_name is set and fetch the task details
     if(isset($_POST['task_name'])) {
         $task_name = $_POST['task_name'];
-        $query = 'SELECT * FROM tasks WHERE task_name = $task_name';
-        $result = mysqli_query($conn, $query);
+        $query = "SELECT * FROM tasks WHERE task_name = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "s", $task_name);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
     }
 
     ?>
-    <form action="edit_task.php?id=<?php echo $task_name; ?>" method="POST">
+    <form action="edit_task.php" method="POST">
         <label>Task Name</label>
-        <input type="text" name="task_name" value="<?php echo $row['task_name'];?>">
+        <input type="text" name="task_name" value="<?php echo htmlspecialchars($row['task_name']); ?>">
         <label>Description</label>
-        <textare name="task_description"><?php echo $row['task_description'];?></textarea>
+        <textarea name="task_description"><?php echo htmlspecialchars($row['task_description']); ?></textarea>
         <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
+    // Check if form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $task_name = $_POST['task_name'];
         $task_description = $_POST['task_description'];
 
-        $query = "UPDATE tasks SET task_name = '$task_name', task_description = '$task_description' WHERE task_name = '$task_name'";
-        mysqli_query($conn, $query);
+        // Update the task details in the database
+        $query = "UPDATE tasks SET task_description = ? WHERE task_name = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "ss", $task_description, $task_name);
+        mysqli_stmt_execute($stmt);
         header("Location: tasklist.php");
     }
     ?>
