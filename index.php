@@ -15,7 +15,8 @@
         </div>
         <div class="navigation-links">
             <nav>
-                <a href="index.html">Home</a>
+                <a href="index.php">Add Task</a>
+                <a href="tasklist.php">Task List</a>
                 <a href="about.html">About</a>
                 <?php
                 session_start();
@@ -25,13 +26,12 @@
                     echo '<a href="login.php">Log in</a>';
                 }
                 ?>
-                <a href="tasklist.php">Task List</a>
             </nav>
         </div>
     </header>
     <div class="add-task-container">
     <h2>Add Task</h2>
-    <form action="add_task.php" method="POST">
+    <form action="php/add_task.php" method="POST">
         <label>Task name:</label><br>
         <input type="text" name="task_name" required><br>
         <label>Description:</label><br>

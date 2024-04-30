@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 session_start(); // Start session to store user login status
 
-require_once('db_config.php'); // Include the database configuration file
+require_once('php/db_config.php'); // Include the database configuration file
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted via POST
     $email = $_POST['email']; // Get email from form
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
         <img src="./svgs/logo_svg-01.svg" alt="logo">
         <h1>Login</h1>
         <?php if(isset($login_error)) echo "<p>$login_error</p>"; ?>
-        <form action="login.php" method="POST">
+        <form action="php/login.php" method="POST">
             <input type="text" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Password">
             <button>Log in</button>

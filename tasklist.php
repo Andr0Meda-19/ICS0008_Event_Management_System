@@ -15,7 +15,8 @@
         </div>
         <div class="navigation-links">
             <nav>
-                <a href="index.html">Home</a>
+                <a href="index.html">Add Task</a>
+                <a href="tasklist.php">Task List</a>
                 <a href="about.html">About</a>
                 <?php
                 session_start();
@@ -24,9 +25,8 @@
                     header("Location: login.php");
                     exit(); // Ensure no further execution if not logged in
                 }
-                echo '<a href="logout.php">Log out</a>';
+                echo '<a href="php/logout.php">Log out</a>';
                 ?>
-                <a href="#">Task List</a>
             </nav>
         </div>
     </header>
@@ -39,7 +39,7 @@
         </tr>
         <?php
         // Connect to the database
-        include 'db_config.php';
+        include 'php/db_config.php';
         $user_id = $_SESSION['user_id']; // Get the user's ID from the session
 
         // Query to fetch tasks for the logged-in user only
@@ -54,7 +54,7 @@
             echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
             // Add edit and delete links with task id as a parameter
                 echo "<td>
-            <form action='delete_task.php' method='post' style='display: inline-block;' onsubmit=\"return confirm('Are you sure you want to delete this task?');\"><input type='hidden' name='task_name' value='" . htmlspecialchars($row['task_name']) . "'><button type='submit' style='background:none; border:none; color:red; text-decoration: underline; cursor:pointer;'>Delete</button></form>
+            <form action='php/delete_task.php' method='post' style='display: inline-block;' onsubmit=\"return confirm('Are you sure you want to delete this task?');\"><input type='hidden' name='task_name' value='" . htmlspecialchars($row['task_name']) . "'><button type='submit' style='background:none; border:none; color:red; text-decoration: underline; cursor:pointer;'>Delete</button></form>
           </td>";
             echo "</tr>";
         }
