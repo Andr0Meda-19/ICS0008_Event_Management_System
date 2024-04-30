@@ -32,6 +32,12 @@
     <h2>Edit Task</h2>
 
     <?php
+    // Check if user is not logged in, redirect to login page
+    if(!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit(); // Prevent further execution
+    }
+
     include 'db_config.php';
 
     // Check if task_name is set and fetch the task details
