@@ -60,6 +60,6 @@
         }
         ?>
     </table>
-    <script src="/scripts/navigation.js"></script>
+    <script src="scripts/navigation.js"></script>
 </body>
 </html>
