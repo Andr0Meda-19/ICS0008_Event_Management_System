@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task_name'])) {
     mysqli_close($conn);
 } else {
     // Redirect user back if the page is accessed without posting form
-    header("Location: delete_task_form.php");
+    header("Location: tasklist.php");
     exit();
 }
 ?>
