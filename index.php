@@ -43,6 +43,7 @@
     </div>
     <div>
     <?php
+    session_start();
             // Добавление новой задачи
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task'])) {
             $task = $_POST['task'];
