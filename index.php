@@ -35,7 +35,7 @@
         <label>Task name:</label><br>
         <input type="text" name="task_name" required><br>
         <label>Description:</label><br>
-        <textarea name="task_description"></textarea>>
+        <textarea name="task_description"></textarea><br>
         <button type="submit">Add Task</button>
     </form>
     </div>
