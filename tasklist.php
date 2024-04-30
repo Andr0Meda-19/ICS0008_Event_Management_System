@@ -15,7 +15,7 @@
         </div>
         <div class="navigation-links">
             <nav>
-                <a href="index.html">Add Task</a>
+                <a href="index.php">Add Task</a>
                 <a href="tasklist.php">Task List</a>
                 <a href="about.html">About</a>
                 <?php
