@@ -54,11 +54,11 @@
     ?>
     <form action="edit_task.php" method="POST">
         <label>Task Name</label>
-        <span><?php echo htmlspecialchars($row['task_name']); ?></span>
+        <span><?php echo htmlspecialchars($row['task_name']); ?></span> <!-- Display task name -->
         <label>Description</label>
-        <textarea name="task_description"><?php echo htmlspecialchars($row['task_description']); ?></textarea>
-        <input type="hidden" name="task_name" value="<?php echo htmlspecialchars($row['task_name']); ?>">
-        <input type="submit" name="submit" value="Submit">
+        <textarea name="task_description"><?php echo htmlspecialchars($row['task_description']); ?></textarea> <!-- Text area for editing description -->
+        <input type="hidden" name="task_name" value="<?php echo htmlspecialchars($row['task_name']); ?>"> <!-- Hidden input for task name -->
+        <input type="submit" name="submit" value="Submit"> <!-- Submit button -->
     </form>
 
     <?php
@@ -72,7 +72,7 @@
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "ss", $task_description, $task_name);
         mysqli_stmt_execute($stmt);
-        header("Location: tasklist.php");
+        header("Location: tasklist.php"); // Redirect to task list page after updating
     }
     ?>
 </body>
