@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task_name'])) {
         $execute = mysqli_stmt_execute($stmt);
         if ($execute) {
             echo "Task deleted successfully.";
+            header("Location: ../tasklist.php");
+            exit ();
         } else {
             echo "Failed to delete task. Error: " . mysqli_stmt_error($stmt);
         }
