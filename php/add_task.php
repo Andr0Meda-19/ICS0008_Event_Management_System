@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
     // Пользователь не авторизован, перенаправляем его на страницу входа
-    header("Location: ./login.php");
+    header("Location: ../login.php");
     exit();
 }
 
