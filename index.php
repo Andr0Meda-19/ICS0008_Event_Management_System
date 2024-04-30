@@ -25,7 +25,7 @@
                     echo '<a href="login.php">Log in</a>';
                 }
                 ?>
-                <a href="#">Task List</a>
+                <a href="tasklist.php">Task List</a>
             </nav>
         </div>
     </header>
