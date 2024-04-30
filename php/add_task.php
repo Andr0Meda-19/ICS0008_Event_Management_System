@@ -25,6 +25,7 @@ $sql = "INSERT INTO tasks (user_id, task_name, task_description) VALUES ('$user_
 
 if (mysqli_query($conn, $sql)) {
     echo "Task added successfully";
+    header ("Location: ../tasklist.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
