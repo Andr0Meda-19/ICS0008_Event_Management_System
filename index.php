@@ -17,7 +17,14 @@
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="login.php">Log in</a>
+                <?php
+                session_start();
+                if(isset($_SESSION['user_id'])) {
+                    echo '<a href="logout.php">Log out</a>';
+                } else {
+                    echo '<a href="login.php">Log in</a>';
+                }
+                ?>
             </nav>
         </div>
     </header>
@@ -94,6 +101,9 @@
             </select>
             <button type="submit">Добавить задачу</button>
         </form>
-        </div>
+    <?php
+    ?>
+
+    </div>
 </body>
 </html>
