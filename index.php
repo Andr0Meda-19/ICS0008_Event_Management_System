@@ -43,8 +43,10 @@
     </div>
     <div>
     <?php
-    session_start();
-            // Добавление новой задачи
+        session_start();
+        require_once 'db_config.php'; // Импорт файла с подключением к базе данных
+
+        // Добавление новой задачи
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task'])) {
             $task = $_POST['task'];
             $category = $_POST['category']; // предполагается, что пользователь выбирает категорию из выпадающего списка
@@ -92,7 +94,6 @@
             </select>
             <button type="submit">Добавить задачу</button>
         </form>
-        <?php
         </div>
 </body>
 </html>
