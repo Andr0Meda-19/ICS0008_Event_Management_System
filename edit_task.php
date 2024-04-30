@@ -41,8 +41,8 @@
     include 'db_config.php';
 
     // Check if task_name is set and fetch the task details
-    if(isset($_POST['task_name'])) {
-        $task_name = $_POST['task_name'];
+    if(isset($_GET['task_name'])) {
+        $task_name = $_GET['task_name'];
         $query = "SELECT * FROM tasks WHERE task_name = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $task_name);
@@ -54,19 +54,20 @@
     ?>
     <form action="edit_task.php" method="POST">
         <label>Task Name</label>
-        <input type="text" name="task_name" value="<?php echo htmlspecialchars($row['task_name']); ?>">
+        <span><?php echo htmlspecialchars($row['task_name']); ?></span>
         <label>Description</label>
         <textarea name="task_description"><?php echo htmlspecialchars($row['task_description']); ?></textarea>
+        <input type="hidden" name="task_name" value="<?php echo htmlspecialchars($row['task_name']); ?>">
         <input type="submit" name="submit" value="Submit">
     </form>
 
     <?php
     // Check if form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $task_name = $_POST['task_name'];
         $task_description = $_POST['task_description'];
+        $task_name = $_POST['task_name'];
 
-        // Update the task details in the database
+        // Update the task description in the database
         $query = "UPDATE tasks SET task_description = ? WHERE task_name = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "ss", $task_description, $task_name);
