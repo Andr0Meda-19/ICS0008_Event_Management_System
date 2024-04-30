@@ -1,23 +1,22 @@
 <?php
+include "db_config.php";
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-include "db_config.php";
+$task_name = 'Sample Task'; // Hardcoded for testing
 
-// Check if the task_name is posted
-if(isset($_POST['task_name'])) {
-    $task_name = $_POST['task_name']; // Corrected variable access
-
-    // Prepare a statement to prevent SQL injection
-    $stmt = mysqli_prepare($conn, "DELETE FROM tasks WHERE task_name = ?");
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "s", $task_name); // Bind the task_name parameter as string
-        mysqli_stmt_execute($stmt); // Execute the prepared statement
-        mysqli_stmt_close($stmt); // Close the statement
+$stmt = mysqli_prepare($conn, "DELETE FROM tasks WHERE task_name = ?");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "s", $task_name);
+    $execute = mysqli_stmt_execute($stmt);
+    if ($execute) {
+        echo "Task deleted successfully.";
+    } else {
+        echo "Failed to delete task.";
     }
-
-    // Redirect to task list page
-    header("Location: tasklist.php");
-    exit();
+    mysqli_stmt_close($stmt);
+} else {
+    echo "Failed to prepare statement.";
 }
 ?>
