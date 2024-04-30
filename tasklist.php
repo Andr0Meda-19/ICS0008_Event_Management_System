@@ -19,38 +19,44 @@
                 <a href="about.html">About</a>
                 <?php
                 session_start();
-                if(isset($_SESSION['user_id'])) {
-                    echo '<a href="logout.php">Log out</a>';
-                } else {
-                    echo '<a href="login.php">Log in</a>';
+                // Redirect user to login page if they are not logged in
+                if (!isset($_SESSION['user_id'])) {
+                    header("Location: login.php");
+                    exit(); // Ensure no further execution if not logged in
                 }
+                echo '<a href="logout.php">Log out</a>';
                 ?>
                 <a href="#">Task List</a>
             </nav>
         </div>
     </header>
-        <table>
-            <tr>
-                <th>Task Name</th>
-                <th>Description</th>
-                <th>Created At</th>
-                <th>Action</th>
-            </tr>
-            <?php
-            // Подключение к базе данных
-            include 'db_config.php';
+    <table>
+        <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+        <?php
+        // Connect to the database
+        include 'db_config.php';
+        $user_id = $_SESSION['user_id']; // Get the user's ID from the session
 
-            $query = "SELECT * FROM tasks";
-            $result = mysqli_query($conn, $query);
+        // Query to fetch tasks for the logged-in user only
+        $query = "SELECT * FROM tasks WHERE user_id = $user_id";
+        $result = mysqli_query($conn, $query);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>". $row['task_name']. "</td>";
-                echo "<td>". $row['task_description']. "</td>";
-                echo "<td>". $row['created_at']. "</td>";
-                echo "<td> <a href='edit_task.php?id={$row['id']}'>Edit</a>" | "<a href='delete_task.php?id={$row['id']}'>Delete</a></td>";
-            }
-            ?>
-        </table>
+        // Display each task in a table row
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['task_name']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['task_description']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
+            // Add edit and delete links with task id as a parameter
+            echo "<td><a href='edit_task.php?id={$row['id']}'>Edit</a> | <a href='delete_task.php?id={$row['id']}'>Delete</a></td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
 </body>
 </html>
