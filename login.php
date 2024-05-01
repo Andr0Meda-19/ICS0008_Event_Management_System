@@ -67,6 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             <p>Not a member? <a href="./signup.html">Register Now</a></p>
         </div>
     </div>
-    <script src="/scripts/navigation.js"></script>
+    <script src="scripts/navigation.js"></script>
 </body>
 </html>
