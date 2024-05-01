@@ -46,6 +46,10 @@ h1 {
     padding-bottom: 1rem;
 }
 
+form.form {
+    width: 100%;
+}
+
 form.form input {
     width: 85%;
     outline: none;
