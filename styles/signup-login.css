@@ -46,7 +46,7 @@ h1 {
     padding-bottom: 1rem;
 }
 
-div.signup-form input {
+form.form input {
     width: 85%;
     outline: none;
     border: 1px solid var(--clr-slate400);
