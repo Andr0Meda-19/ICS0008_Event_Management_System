@@ -10,13 +10,13 @@
 <body>
     <div class="wrapper">
 
-        <img src="./svgs/logo_svg-01.svg" alt="logo">
+        <img src="./svgs/logo_svg-01.svg" class="logo" alt="logo">
 
         <h1>Sign Up</h1>
 
-        <form action="./php/process-signup.php" method="post" id="signup">
+        <form action="./php/process-signup.php" method="post" class="form">
 
-            <div>
+            <div class="signup-form">
                 <input type="email" id="email" name="email" placeholder="Email">
                 <input type="text" id="username" name="username" placeholder="Username">
                 <input type="password" id="password" name="password" placeholder="Password">
@@ -28,13 +28,13 @@
                 <label for="checkbox">I agree to these <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label>
             </div>
 
-            <button>Sign Up</button>
+            <button class="submit">Sign Up</button>
 
-            <div class="member">
-                <p>Already a member? <a href="login.php">Login Here</a></p>
-            </div>
+        </form>
 
-        </form> 
+        <div class="member">
+            <p>Already a member? <a href="login.php">Login Here</a></p>
+        </div>
 
     </div>
     <script src="/scripts/navigation.js"></script>

@@ -16,7 +16,11 @@ body {
     height: 100vh;
 }
 
-.wrapper {
+div.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
     /* position: relative; */
     width: 30%;
     min-width: 330px;
@@ -29,8 +33,7 @@ body {
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
 }
 
-img {
-    /* display: inline-block; */
+img.logo {
     width: 70%;
     max-width: 300px;
 }
@@ -43,7 +46,7 @@ h1 {
     padding-bottom: 1rem;
 }
 
-form input {
+div.signup-form input {
     width: 85%;
     outline: none;
     border: 1px solid var(--clr-slate400);
@@ -53,7 +56,7 @@ form input {
     background: var(--clr-light);
 }
 
-.submit {
+button.submit {
     font-size: 1rem;
     margin-top: 1.5rem;
     padding: 10px 0;
@@ -66,54 +69,39 @@ form input {
     background: linear-gradient(to right, var(--clr-indigo), var(--clr-blue));
 }
 
-.submit:hover {
+button.submit:hover {
     opacity: 0.8;
 }
 
-input:focus {
-    border: 1px solid var(--clr-slate400);
-}
-
-.terms {
-    margin-top: 0.2rem;
+div.terms {
+    /* margin-top: 0.2rem; */
     margin-left: 10%;
     margin-right: 10%;
 }
 
-.terms input {
+div.terms input {
     height: 1.2em;
     width: 1.2em;
     cursor: pointer;
+    vertical-align: -2px;
 }
 
-.terms label {
+div.terms label {
     font-size: 0.9rem;
 }
 
-.terms a {
+div.terms a {
     color: var(--clr-blue);
     text-decoration: none;
 }
 
-.member {
+div.member {
     font-size: 0.9rem;
     margin-top: 1.4rem;
     color: var(--clr-dark);
 }
 
-.member a {
+div.member a {
     color: var(--clr-blue);
-    text-decoration: none;
-}
-
-.recover {
-    text-align: right;
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
-    margin-right: 8%;
-}
-
-.recover a {
-    color: var(--clr-dark);
     text-decoration: none;
 }

@@ -55,13 +55,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
 </head>
 <body>
     <div class="wrapper">
-        <img src="./svgs/logo_svg-01.svg" alt="logo">
+        <img src="./svgs/logo_svg-01.svg" class="logo" alt="logo">
         <h1>Login</h1>
         <?php if(isset($login_error)) echo "<p>$login_error</p>"; ?>
-        <form action="./login.php" method="POST">
+        <form action="./login.php" method="POST" class="form">
             <input type="text" id="email" name="email" placeholder="Email">
             <input type="password" id="password" name="password" placeholder="Password">
-            <button>Log in</button>
+            <button class="submit">Log in</button>
         </form>
         <div class="member">
             <p>Not a member? <a href="./signup.html">Register Now</a></p>
