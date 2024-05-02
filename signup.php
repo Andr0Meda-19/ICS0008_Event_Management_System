@@ -9,31 +9,31 @@ $errors = []; // Initialize an array to store validation errors
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted via POST
     // Validation checks for username, email, password, etc.
     if(empty($_POST["username"])){
-        $errors[] = "Please enter a username";
+        $errors[] = "- Please enter a username";
     }
 
     if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-        $errors[] = "Please enter a valid email address";
+        $errors[] = "- Please enter a valid email address";
     }
 
     if(strlen($_POST["password"]) < 8){
-        $errors[] = "Password must be at least 8 characters";
+        $errors[] = "- Password must be at least 8 characters";
     }
 
     if(!preg_match("/[A-Z]/", $_POST["password"])){
-        $errors[] = "Password must contain at least one uppercase letter";
+        $errors[] = "- Password must contain at least one uppercase letter";
     }
 
     if(!preg_match("/[0-9]/", $_POST["password"])){
-        $errors[] = "Password must contain at least one number";
+        $errors[] = "- Password must contain at least one number";
     }
 
     if($_POST["password"] != $_POST["confirmPassword"]){
-        $errors[] = "Passwords do not match";
+        $errors[] = "- Passwords do not match";
     }
 
     if(empty($_POST["checkbox"])){
-        $errors[] = "You must agree to the terms and conditions";
+        $errors[] = "- You must agree to the terms and conditions";
     }
 
     if(empty($errors)) { // If there are no validation errors
