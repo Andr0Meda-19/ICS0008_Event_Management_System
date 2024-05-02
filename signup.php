@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require_once('db_config.php'); // Include the database configuration file
+require_once('./php/db_config.php'); // Include the database configuration file
 
 $errors = []; // Initialize an array to store validation errors
 
