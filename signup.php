@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             </div>
 
             <button class="submit" name="button">Sign Up</button>
-
+        <div>
         <?php
         if (isset($_POST['button'])) {
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -115,6 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             }
         }
         ?>
+        </div>
 
         </form>
         <div class="member">
