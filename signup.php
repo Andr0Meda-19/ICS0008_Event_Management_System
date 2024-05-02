@@ -104,7 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
 
             <button class="submit">Sign Up</button>
 
-        </form>
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(!empty($errors)) { // If there are validation errors, display them
@@ -114,6 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             }
         }
         ?>
+
+        </form>
         <div class="member">
             <p>Already a member? <a href="login.php">Login Here</a></p>
         </div>
