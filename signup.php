@@ -102,14 +102,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
                 <label for="checkbox">I agree to these <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label>
             </div>
 
-            <button class="submit">Sign Up</button>
+            <button class="submit" name="submit">Sign Up</button>
 
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if(!empty($errors)) { // If there are validation errors, display them
-                foreach ($errors as $error) {
-                echo $error . "<br>";
-            }
+        if (isset($_GET['button'])) {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if(!empty($errors)) { // If there are validation errors, display them
+                    foreach ($errors as $error) {
+                        echo $error . "<br>";
+                    }
+                }
             }
         }
         ?>
