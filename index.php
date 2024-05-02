@@ -14,7 +14,6 @@
             <img src="./svgs/logo_svg-01.svg" class="logo" alt="logo">
         
             <ul class="navbar">
-                <li><a href="index.php">Home</a></li>
                 <li><a href="index.php">Add Task</a></li>
                 <li><a href="tasklist.php">Task List</a></li>
                 <li><a href="about.html">About Us</a></li>
