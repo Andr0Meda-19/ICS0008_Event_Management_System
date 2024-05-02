@@ -106,13 +106,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
 
         </form>
         <?php
-
-        if(!empty($errors)) { // If there are validation errors, display them
-            foreach ($errors as $error) {
-            echo $error . "<br>";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(!empty($errors)) { // If there are validation errors, display them
+                foreach ($errors as $error) {
+                echo $error . "<br>";
+            }
+            }
         }
-        }
-
         ?>
         <div class="member">
             <p>Already a member? <a href="login.php">Login Here</a></p>
