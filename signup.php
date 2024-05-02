@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             }
         } catch (mysqli_sql_exception $e) { // Catch specific MySQLi exceptions
             if ($e->getCode() === 1062) { // If the error code indicates a duplicate entry
-                echo "This email is already registered. Please use another email.";
+                $errors[] = "- This email is already registered. Please use another email.";
             } else {
                 echo "Database error: " . $e->getMessage(); // Display general database error
             }
