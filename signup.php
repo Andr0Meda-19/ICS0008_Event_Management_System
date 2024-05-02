@@ -68,11 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
         } catch (Exception $e) { // Catch general exceptions
             echo "Error: " . $e->getMessage(); // Display general error
         }
-    } else { // If there are validation errors, display them
-        foreach ($errors as $error) {
-            echo $error . "<br>";
-        }
-    }
+    } 
 }
 ?>
 <!DOCTYPE html>
@@ -109,7 +105,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             <button class="submit">Sign Up</button>
 
         </form>
+        <?php
 
+        if(!empty($errors)) { // If there are validation errors, display them
+            foreach ($errors as $error) {
+            echo $error . "<br>";
+        }
+
+        ?>
         <div class="member">
             <p>Already a member? <a href="login.php">Login Here</a></p>
         </div>
