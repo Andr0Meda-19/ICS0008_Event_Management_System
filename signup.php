@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
                 <label for="checkbox">I agree to these <a href="terms.html" target="_blank">Terms &amp; Conditions</a></label>
             </div>
 
-            <button class="submit" name="button" style="padding-bottom: 50px">Sign Up</button>
+            <button class="submit" name="button" style="margin: 25px">Sign Up</button>
 
             <div>
             <?php
