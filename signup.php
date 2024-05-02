@@ -111,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             foreach ($errors as $error) {
             echo $error . "<br>";
         }
+        }
 
         ?>
         <div class="member">
