@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
             <button class="submit" name="submit">Sign Up</button>
 
         <?php
-        if (isset($_GET['button'])) {
+        if (isset($_POST['button'])) {
             if(!empty($errors)) { // If there are validation errors, display them
                 foreach ($errors as $error) {
                     echo $error . "<br>";
