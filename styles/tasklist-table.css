@@ -1,0 +1,92 @@
+.table-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.fixed-table {
+    width: 100%;
+    min-width: 400px;
+    max-width: 1200px;
+    border-collapse: collapse;
+    overflow: hidden;
+    empty-cells: show;
+    border-radius: 10px;
+    background-color: var(--clr-lighter);
+}
+
+.fixed-table thead {
+    background: var(--clr-slate800);
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.fixed-table tbody {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    height: 400px;
+}
+
+.fixed-table tr {
+    display: block;
+}
+
+
+.fixed-table td, .fixed-table th {
+    padding: 12px 16px;
+    font-size: 1.1rem;
+}
+
+.fixed-table td:nth-last-of-type(-n+2),
+.fixed-table th:nth-last-of-type(-n+2) {
+    text-align: right;
+}
+
+.fixed-table td:nth-child(-n+2),
+.fixed-table th:nth-child(-n+2) {
+    text-align: left;
+}
+
+.fixed-table tbody tr:nth-child(even) {
+    background-color: var(--clr-light);
+}
+
+.fixed-table tbody tr:hover {
+    background: linear-gradient(to bottom right, hsl(243, 75%, 85%) 20%, hsl(199, 76%, 80%));
+}
+
+.fixed-table .tr1 {
+    width: 25%;
+}
+
+.fixed-table .tr2 {
+    width: 55%;
+}
+
+.fixed-table .tr3 {
+    width: 20%;
+}
+
+.fixed-table .tr4 {
+    padding-left: 20px;
+}
+
+.fixed-table .tr4 i {
+    font-size: 1.2rem;
+    color: red;
+}
+
+.tr4 button[type="submit"] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tr4 button[type="submit"]:hover {
+    scale: 1.2;
+}

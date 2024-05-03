@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/tasklist-table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>Task List</title>
@@ -35,36 +36,42 @@
 
         </nav>
     </header>
-    <table>
-        <tr>
-            <th>Task Name</th>
-            <th>Description</th>
-            <th>Created At</th>
-            <th>Action</th>
-        </tr>
-        <?php
-        // Connect to the database
-        include 'php/db_config.php';
-        $user_id = $_SESSION['user_id']; // Get the user's ID from the session
-
-        // Query to fetch tasks for the logged-in user only
-        $query = "SELECT * FROM tasks WHERE user_id = $user_id";
-        $result = mysqli_query($conn, $query);
-
-        // Display each task in a table row
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['task_name']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['task_description']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
-            // Add edit and delete links with task id as a parameter
-                echo "<td>
-            <form action='php/delete_task.php' method='post' style='display: inline-block;' onsubmit=\"return confirm('Are you sure you want to delete this task?');\"><input type='hidden' name='task_name' value='" . htmlspecialchars($row['task_name']) . "'><button type='submit' style='background:none; border:none; color:red; text-decoration: underline; cursor:pointer;'>Delete</button></form>
-          </td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
+    <div class="table-wrapper">
+        <table class="fixed-table">
+            <thead>
+                <tr>
+                    <th class="tr1">Task Name</th>
+                    <th class="tr2">Description</th>
+                    <th class="tr3">Created At</th>
+                    <th class="tr4">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Connect to the database
+                include 'php/db_config.php';
+                $user_id = $_SESSION['user_id']; // Get the user's ID from the session
+                // Query to fetch tasks for the logged-in user only
+                $query = "SELECT * FROM tasks WHERE user_id = $user_id";
+                $result = mysqli_query($conn, $query);
+                // Display each task in a table row
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<tr>';
+                    echo '<td class="tr1">' . htmlspecialchars($row['task_name']) . '</td>';
+                    echo '<td class="tr2">' . htmlspecialchars($row['task_description']) . '</td>';
+                    echo '<td class="tr3">' . htmlspecialchars($row['created_at']) . '</td>';
+                    // Add edit and delete links with task id as a parameter
+                    echo '<td class="tr4">
+                    <form action="php/delete_task.php" method="post" onsubmit="return confirm("Are you sure you want to delete this task?");">
+                    <input type="hidden" name="task_name" value="' . htmlspecialchars($row['task_name']) . '">
+                    <button type="submit"><i class="ri-close-large-line"></i></button></form>
+                    </td>';
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
     <script src="scripts/navbar.js"></script>
     <script src="scripts/navigation.js"></script>
 </body>

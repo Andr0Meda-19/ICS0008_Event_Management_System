@@ -30,13 +30,12 @@ nav {
   align-items: center;
   /* text-align: center; */
   justify-content: space-between;
-  padding: 24px 8%;
+  padding: 20px 10%;
   transition: all 0.5s ease;
 }
 
 nav img.logo {
-  max-width: 220px;
-  min-width: 220px;
+  width: 220px;
 }
 
 .navbar {
@@ -129,6 +128,7 @@ nav img.logo {
     height: fit-content;
     background: var(--clr-light);
     display: flex;
+    visibility: hidden;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 10px;
@@ -149,6 +149,7 @@ nav img.logo {
   }
   .navbar.open {
     right: 2%;
+    visibility: visible;
   }
 }
 
