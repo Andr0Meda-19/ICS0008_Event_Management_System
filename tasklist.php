@@ -61,11 +61,11 @@
                     echo '<td class="tr2">' . htmlspecialchars($row['task_description']) . '</td>';
                     echo '<td class="tr3">' . htmlspecialchars($row['created_at']) . '</td>';
                     // Add edit and delete links with task id as a parameter
-                    echo '<td class="tr4">
-                    <form action="php/delete_task.php" method="post" onsubmit="return confirm("Are you sure you want to delete this task?");">
-                    <input type="hidden" name="task_name" value="' . htmlspecialchars($row['task_name']) . '">
-                    <button type="submit"><i class="ri-close-large-line"></i></button></form>
-                    </td>';
+                    echo "<td class='tr4'>
+                    <form action='php/delete_task.php' method='post' onsubmit="return confirm('Are you sure you want to delete this task?');">
+                    <input type='hidden' name='task_name' value=" . htmlspecialchars($row['task_name']) . ">
+                    <button type='submit'><i class='ri-close-large-line'></i></button></form>
+                    </td>";
                     echo "</tr>";
                 }
                 ?>

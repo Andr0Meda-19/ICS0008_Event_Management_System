@@ -28,7 +28,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
-    height: 400px;
+    max-height: 500px;
 }
 
 .fixed-table tr {
@@ -59,6 +59,10 @@
     background: linear-gradient(to bottom right, hsl(243, 75%, 85%) 20%, hsl(199, 76%, 80%));
 }
 
+.fixed-table tbody tr:hover .tr4 i {
+    visibility: visible;
+}
+
 .fixed-table .tr1 {
     width: 25%;
 }
@@ -78,6 +82,8 @@
 .fixed-table .tr4 i {
     font-size: 1.2rem;
     color: red;
+    visibility: hidden;
+    transition: all 0.2s ease;
 }
 
 .tr4 button[type="submit"] {
