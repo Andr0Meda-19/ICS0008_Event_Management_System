@@ -2,12 +2,12 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    // Пользователь не авторизован, перенаправляем его на страницу входа
+    // User is not authenticated, redirect to the login page
     header("Location: ../login.php");
     exit();
 }
 
-// Подключение к базе данных
+// Connect to the database
 require_once 'db_config.php';
 
 if (!$conn) {
@@ -18,16 +18,29 @@ $task_name = $_POST['task_name'];
 $user_id = $_SESSION['user_id'];
 $task_description = $_POST['task_description'];
 
-// Защита от SQL-инъекций (можно улучшить, в зависимости от используемой библиотеки)
-$task_description = mysqli_real_escape_string($conn, $task_description);
+try {
+    // Prepare SQL query
+    $sql = "INSERT INTO tasks (user_id, task_name, task_description) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
 
-$sql = "INSERT INTO tasks (user_id, task_name, task_description) VALUES ('$user_id', '$task_name', '$task_description')";
-
-if (mysqli_query($conn, $sql)) {
-    echo "Task added successfully";
-    header ("Location: ../tasklist.php");
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    if ($stmt) {
+        // Bind parameters and execute query
+        $stmt->bind_param("iss", $user_id, $task_name, $task_description);
+        if ($stmt->execute()) {
+            echo "Task added successfully";
+            header("Location: ../tasklist.php");
+            exit();
+        } else {
+            echo "Error executing query: " . $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        throw new Exception("Error preparing query: " . $conn->error);
+    }
+} catch (mysqli_sql_exception $e) {
+    echo "Database error: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
 
 mysqli_close($conn);
