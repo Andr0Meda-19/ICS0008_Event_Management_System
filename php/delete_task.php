@@ -3,28 +3,28 @@ include "db_config.php";  // Includes your database connection settings
 
 // Check if the form's submit button is clicked
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['task_name'])) {
-    // Clean the data received from the form to avoid SQL Injection
-    $task_name = mysqli_real_escape_string($conn, $_POST['task_name']);
+    $task_name = $_POST['task_name'];
 
     // Prepare the DELETE statement
-    $stmt = mysqli_prepare($conn, "DELETE FROM tasks WHERE task_name = ?");
+    $sql = "DELETE FROM tasks WHERE task_name = ?";
+    $stmt = $conn->prepare($sql);
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "s", $task_name);
-        $execute = mysqli_stmt_execute($stmt);
-        if ($execute) {
+        // Bind parameters and execute query
+        $stmt->bind_param("s", $task_name);
+        if ($stmt->execute()) {
             echo "Task deleted successfully.";
             header("Location: ../tasklist.php");
-            exit ();
+            exit();
         } else {
-            echo "Failed to delete task. Error: " . mysqli_stmt_error($stmt);
+            echo "Failed to delete task. Error: " . $stmt->error;
         }
-        mysqli_stmt_close($stmt);
+        $stmt->close();
     } else {
-        echo "Failed to prepare statement. Error: " . mysqli_error($conn);
+        echo "Failed to prepare statement. Error: " . $conn->error;
     }
 
     // Close the database connection
-    mysqli_close($conn);
+    $conn->close();
 } else {
     // Redirect user back if the page is accessed without posting form
     header("Location: ../tasklist.php");
