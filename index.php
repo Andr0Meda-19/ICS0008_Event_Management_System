@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>Add task</title>
+    <title>Add Event</title>
 </head>
 <body>
     <header>
@@ -14,8 +14,8 @@
             <img src="./svgs/logo_svg-01.svg" class="logo" alt="logo">
         
             <ul class="navbar">
-                <li><a href="index.php">Add Task</a></li>
-                <li><a href="tasklist.php">Task List</a></li>
+                <li><a href="index.php">Add Event</a></li>
+                <li><a href="tasklist.php">Event List</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <div class="main">
@@ -32,10 +32,10 @@
             </div>
         </nav>
     </header>
-    <h2>Add Task</h2>
+    <h2>Add Event</h2>
     <div class="add-task-container">
         <form action="./php/add_task.php" id="add_task_form" method="POST">
-            <label for="task_name">Task name:</label>
+            <label for="task_name">Event name:</label>
             <input type="text" id="task_name" name="task_name" required>
             <label for="task_description">Description:</label>
             <textarea id="task_description" name="task_description"></textarea>
