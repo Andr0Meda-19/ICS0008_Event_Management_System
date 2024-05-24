@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/tasklist-table.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>Task List</title>
+    <title>Event List</title>
 </head>
 <body>
     <header>
@@ -15,8 +15,8 @@
             <img src="./svgs/logo_svg-01.svg" class="logo" alt="logo">
 
             <ul class="navbar">
-                <li><a href="index.php">Add Task</a></li>
-                <li><a href="tasklist.php">Task List</a></li>
+                <li><a href="index.php">Add Event</a></li>
+                <li><a href="tasklist.php">Event List</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
 
@@ -40,7 +40,7 @@
         <table class="fixed-table">
             <thead>
                 <tr>
-                    <th class="tr1">Task Name</th>
+                    <th class="tr1">Event Name</th>
                     <th class="tr2">Description</th>
                     <th class="tr3">Created At</th>
                     <th class="tr4">Action</th>
