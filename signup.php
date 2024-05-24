@@ -79,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Check if the form was submitted v
     <title>Login and Sign Up form</title>
     <link rel="stylesheet" href="./styles/signup-login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="scripts/signup-validation.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
