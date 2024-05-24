@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Уничтожаем все данные сеанса
+// Destroy all session data
 session_destroy();
 
-// Перенаправляем пользователя обратно на текущую страницу
+// Redirect the user back to the current page
 header("Location: " . $_SERVER['HTTP_REFERER']);
 ?>
